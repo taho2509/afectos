@@ -20,7 +20,7 @@ class App extends Component {
             <div className="App">
                 <header className="App-header">
                     <p>
-                        Una aplicacion sencilla para calcular el estado de animo de las personas en la mannana tarde y noche de cada dia
+                        Una aplicacion sencilla para calcular el estado de animo de las personas en la manana, tarde y noche de cada dia
                     </p>
                 </header>
                 <AfectosForm/>
