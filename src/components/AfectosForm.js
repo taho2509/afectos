@@ -27,7 +27,8 @@ class AfectosForm extends React.Component {
             inputs: Array(2).fill({
                 value: ''
             }),
-            date: today
+            date: today,
+            emotions: ""
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -37,18 +38,27 @@ class AfectosForm extends React.Component {
     handleChange(event, i) {
         const inputs = this.state.inputs.slice();
         const date = this.state.date;
+        var emotions = main(this.state.inputs[0].value + " " + this.state.inputs[1].value, this.state.date);
         inputs[i] = {
             value: event.target.value
         }
         this.setState({
             inputs: inputs,
-            date: date
+            date: date,
+            emotions: emotions
         });
     }
 
     handleSubmit(event) {
         event.preventDefault();
-        alert(main(this.state.inputs[0].value + " " + this.state.inputs[1].value, this.state.date));
+        var emotions = main(this.state.inputs[0].value + " " + this.state.inputs[1].value, this.state.date);
+        const inputs = this.state.inputs.slice();
+        const date = this.state.date;
+        this.setState({
+            inputs: inputs,
+            date: date,
+            emotions: emotions
+        });
     }
 
     handleSelect(date) {
@@ -98,6 +108,13 @@ class AfectosForm extends React.Component {
                         <Button bsStyle="primary" type="submit">
                             Ver estados de animo
                         </Button>
+                    </Col>
+                </FormGroup>
+                <FormGroup>
+                    <Col sm={12}>
+                        <p>
+                            {this.state.emotions}
+                        </p>
                     </Col>
                 </FormGroup>
             </Form>
