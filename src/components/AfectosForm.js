@@ -63,7 +63,7 @@ class AfectosForm extends React.Component {
         return (
             <Form horizontal onSubmit={this.handleSubmit}>
                 <FormGroup>
-                    <Col sm={5}>
+                    <Col sm={5} smOffset={1}>
                         <InfiniteCalendar
                             width={(window.innerWidth <= 400) ? window.innerWidth : 400}
                             height={window.innerHeight - 400}

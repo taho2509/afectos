@@ -6,11 +6,11 @@ import AfectosForm from './components/AfectosForm';
 // be better to put this in header
 /*<link
     rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     crossOrigin="anonymous"
 />*/
 
-import './css/bootstrap.min.css';
+//import './css/bootstrap.min.css';
 
 
 
@@ -19,6 +19,11 @@ class App extends Component {
         return (
             <div className="App">
                 <header className="App-header">
+                    <link
+                        rel="stylesheet"
+                        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+                        crossOrigin="anonymous"
+                    />
                     <p>
                         Una aplicacion sencilla para calcular el estado de animo de las personas en la manana, tarde y noche de cada dia
                     </p>
