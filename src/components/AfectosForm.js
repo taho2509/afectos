@@ -1,8 +1,9 @@
-import React from 'react';
-import {FormGroup, FormControl, ControlLabel, Button, Form, Col} from 'react-bootstrap';
+import React, {Component} from 'react';
+import {FormGroup, FormControl, ControlLabel, Panel, Form, Col, Button} from 'react-bootstrap';
 import InfiniteCalendar from "react-infinite-calendar";
 import 'react-infinite-calendar/styles.css'; // only needs to be imported once
 import '../css/Afectos.css';
+import * as PropTypes from "prop-types";
 
 const locale = {
     blank: 'Ninguna fecha seleccionada',
@@ -20,6 +21,28 @@ const locale = {
 var today = new Date();
 var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
 
+class InfoPanel extends Component {
+    render() {
+        return (
+            <Panel>
+            <Panel.Body>
+                {this.props.content}
+                {this.props.content ?
+                    <Button
+                        bsSize="xsmall"
+                        bsStyle={"danger pull-right"}
+                    >
+                        X
+                    </Button>
+                :null
+                }
+            </Panel.Body>
+        </Panel>);
+    }
+}
+
+InfoPanel.propTypes = {emotions: PropTypes.string};
+
 class AfectosForm extends React.Component {
     constructor(props) {
         super(props);
@@ -32,7 +55,6 @@ class AfectosForm extends React.Component {
         };
 
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(event, i) {
@@ -42,18 +64,6 @@ class AfectosForm extends React.Component {
         inputs[i] = {
             value: event.target.value
         }
-        this.setState({
-            inputs: inputs,
-            date: date,
-            emotions: emotions
-        });
-    }
-
-    handleSubmit(event) {
-        event.preventDefault();
-        var emotions = main(this.state.inputs[0].value + " " + this.state.inputs[1].value, this.state.date);
-        const inputs = this.state.inputs.slice();
-        const date = this.state.date;
         this.setState({
             inputs: inputs,
             date: date,
@@ -105,16 +115,11 @@ class AfectosForm extends React.Component {
                                 onChange={(event) => this.handleChange(event, 1)}
                             />
                         </FormGroup>
-                        <Button bsStyle="primary" type="submit">
-                            Ver estados de animo
-                        </Button>
                     </Col>
                 </FormGroup>
                 <FormGroup>
-                    <Col sm={12}>
-                        <p>
-                            {this.state.emotions}
-                        </p>
+                    <Col sm={10} smOffset={1}>
+                        <InfoPanel content={this.state.emotions}/>
                     </Col>
                 </FormGroup>
             </Form>
