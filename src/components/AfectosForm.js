@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
-import {FormGroup, FormControl, ControlLabel, Panel, Form, Col, Button} from 'react-bootstrap';
+import React from 'react';
+import {Col, ControlLabel, Form, FormControl, FormGroup} from 'react-bootstrap';
 import InfiniteCalendar from "react-infinite-calendar";
 import 'react-infinite-calendar/styles.css'; // only needs to be imported once
 import '../css/Afectos.css';
-import * as PropTypes from "prop-types";
+import {InfoPanel} from "./InfoPanel";
 
 const locale = {
     blank: 'Ninguna fecha seleccionada',
@@ -20,28 +20,6 @@ const locale = {
 // Render the Calendar
 var today = new Date();
 var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
-
-class InfoPanel extends Component {
-    render() {
-        return (
-            <Panel>
-            <Panel.Body>
-                {this.props.content}
-                {this.props.content ?
-                    <Button
-                        bsSize="xsmall"
-                        bsStyle={"danger pull-right"}
-                    >
-                        X
-                    </Button>
-                :null
-                }
-            </Panel.Body>
-        </Panel>);
-    }
-}
-
-InfoPanel.propTypes = {emotions: PropTypes.string};
 
 class AfectosForm extends React.Component {
     constructor(props) {
