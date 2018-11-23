@@ -32,21 +32,21 @@ describe("AfectosForm", () => {
 //here I setup all tests for InfoPanel
 describe("InfoPanel", () => {
     let props;
-    let mountedInfoPanel;
+    let shallowedInfoPanel;
     const infoPanel = () => {
-        if (!mountedInfoPanel) {
-            mountedInfoPanel = shallow(
+        if (!shallowedInfoPanel) {
+            shallowedInfoPanel = shallow(
                 <InfoPanel {...props} />
             );
         }
-        return mountedInfoPanel;
+        return shallowedInfoPanel;
     };
 
     beforeEach(() => {
         props = {
             content: undefined,
         };
-        mountedInfoPanel = undefined;
+        shallowedInfoPanel = undefined;
     });
 
     // All tests will go here
@@ -67,13 +67,14 @@ describe("InfoPanel", () => {
     });
 
     describe("when `content` is defined", () => {
+        const testString = "Test string";
         beforeEach(() => {
-            props.content = "Test string";
+            props.content = testString;
         });
 
         it("text from `content` is shown", () => {
             const panelBody = infoPanel().find(Panel.Body);
-            expect(panelBody.text()).toBe(props.content);
+            expect(panelBody.contains(testString)).toBe(true);
         });
 
         it("Button is shown", () => {
@@ -88,8 +89,10 @@ describe("InfoPanel", () => {
         });
 
         it("no text is shown", () => {
-            const panelBody = infoPanel().find(Panel.Body);
-            expect(panelBody.text()).toBe("");
+            const panel = mount(
+                <InfoPanel/>
+            );
+            expect(panel.find(Panel.Body).text()).toEqual("");
         });
 
         it("Button isn't shown", () => {
