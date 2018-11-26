@@ -1,103 +1,55 @@
 import React from 'react';
-import AfectosForm from './components/AfectosForm';
-import {InfoPanel} from './components/InfoPanel';
-import {Button, Panel} from "react-bootstrap";
-import Enzyme, {mount, shallow, render} from 'enzyme'
+import Enzyme, {shallow} from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16';
+import toJson from 'enzyme-to-json'
+import App from "./App";
+import {Form} from "react-bootstrap";
+
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe("AfectosForm", () => {
-    let mountedAfectosForm;
-    const afectosForm = () => {
-        if (!mountedAfectosForm) {
-            mountedAfectosForm = mount(
-                <AfectosForm/>
+describe("App", () => {
+    let shallowApp;
+    const app = () => {
+        if (!shallowApp) {
+            shallowApp = shallow(
+                <App/>
             );
         }
-        return mountedAfectosForm;
+        return shallowApp;
     };
 
     beforeEach(() => {
-        mountedAfectosForm = undefined;
+        shallowApp = undefined;
     });
 
     // All tests will go here
+    it('renders correctly', () => {
+        const tree = app();
+        expect(toJson(tree)).toMatchSnapshot();
+    });
+
     it("always renders a div", () => {
-        const divs = afectosForm().find("form");
+        const divs = app().find("div");
         expect(divs.length).toBeGreaterThan(0);
     });
-});
 
-//here I setup all tests for InfoPanel
-describe("InfoPanel", () => {
-    let props;
-    let shallowedInfoPanel;
-    const infoPanel = () => {
-        if (!shallowedInfoPanel) {
-            shallowedInfoPanel = shallow(
-                <InfoPanel {...props} />
-            );
-        }
-        return shallowedInfoPanel;
-    };
-
-    beforeEach(() => {
-        props = {
-            content: undefined,
-        };
-        shallowedInfoPanel = undefined;
+    it("always renders a header", () => {
+        const header = app().find("header");
+        expect(header.length).toBe(1);
     });
 
-    // All tests will go here
-    it("always renders a `Panel`", () => {
-        expect(infoPanel().find(Panel).length).toBe(1);
+    it("always renders an `AfectosForm`", () => {
+        const afectos = app().find("AfectosForm");
+        expect(afectos.length).toBe(1);
     });
 
-    it("always renders a `Panel.Body`", () => {
-        expect(infoPanel().find(Panel.Body).length).toBe(1);
-    });
-
-    describe("the rendered Panel", () => {
+    describe("the rendered div", () => {
         it("contains everything else that gets rendered", () => {
-            const panel = infoPanel().find(Panel);
-            const wrappingPanel = panel.first();
-            expect(wrappingPanel.children()).toEqual(infoPanel().children());
+            const divs = app().find("div");
+            const wrappingDiv = divs.first();
+            expect(wrappingDiv.children()).toEqual(app().children());
         });
     });
 
-    describe("when `content` is defined", () => {
-        const testString = "Test string";
-        beforeEach(() => {
-            props.content = testString;
-        });
-
-        it("text from `content` is shown", () => {
-            const panelBody = infoPanel().find(Panel.Body);
-            expect(panelBody.contains(testString)).toBe(true);
-        });
-
-        it("Button is shown", () => {
-            const panelBody = infoPanel().find(Panel.Body);
-            expect(panelBody.find(Button).length).toBe(1);
-        });
-    });
-
-    describe("when `content` is undefined", () => {
-        beforeEach(() => {
-            props.content = undefined;
-        });
-
-        it("no text is shown", () => {
-            const panel = mount(
-                <InfoPanel/>
-            );
-            expect(panel.find(Panel.Body).text()).toEqual("");
-        });
-
-        it("Button isn't shown", () => {
-            const panelBody = infoPanel().find(Panel.Body);
-            expect(panelBody.find(Button).length).toBe(0);
-        });
-    });
 });

@@ -17,8 +17,17 @@ const locale = {
     weekStartsOn: 1, // Start the week on Monday
 };
 
+var today;
+
 // Render the Calendar
-var today = new Date();
+if (process.env.NODE_ENV === 'test') {
+    //I needed to fix the date to make snapshot not fail everytime it runs
+    today = new Date(2018, 1, 1);
+} else
+{
+    today = new Date();
+}
+
 var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
 
 class AfectosForm extends React.Component {

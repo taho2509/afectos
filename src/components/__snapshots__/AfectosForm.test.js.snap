@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AfectosForm renders correctly 1`] = `
+<Form
+  bsClass="form"
+  componentClass="form"
+  horizontal={true}
+  inline={false}
+>
+  <FormGroup
+    bsClass="form-group"
+  >
+    <Col
+      bsClass="col"
+      componentClass="div"
+      sm={5}
+      smOffset={1}
+    >
+      <DefaultCalendar
+        Component={[Function]}
+        displayOptions={
+          Object {
+            "layout": "landscape",
+          }
+        }
+        height={368}
+        interpolateSelection={[Function]}
+        locale={
+          Object {
+            "blank": "Ninguna fecha seleccionada",
+            "headerFormat": "dddd, D MMM",
+            "locale": Object {
+              "distanceInWords": Object {
+                "localize": [Function],
+              },
+              "format": Object {
+                "formatters": Object {
+                  "A": [Function],
+                  "DDDo": [Function],
+                  "Do": [Function],
+                  "MMM": [Function],
+                  "MMMM": [Function],
+                  "Mo": [Function],
+                  "Qo": [Function],
+                  "Wo": [Function],
+                  "a": [Function],
+                  "aa": [Function],
+                  "dd": [Function],
+                  "ddd": [Function],
+                  "dddd": [Function],
+                  "do": [Function],
+                },
+                "formattingTokensRegExp": /\\(\\\\\\[\\[\\^\\\\\\[\\]\\*\\\\\\]\\)\\|\\(\\\\\\\\\\)\\?\\(x\\|ss\\|s\\|mm\\|m\\|hh\\|h\\|do\\|dddd\\|ddd\\|dd\\|d\\|aa\\|a\\|ZZ\\|Z\\|YYYY\\|YY\\|X\\|Wo\\|WW\\|W\\|SSS\\|SS\\|S\\|Qo\\|Q\\|Mo\\|MMMM\\|MMM\\|MM\\|M\\|HH\\|H\\|GGGG\\|GG\\|E\\|Do\\|DDDo\\|DDDD\\|DDD\\|DD\\|D\\|A\\|\\.\\)/g,
+              },
+            },
+            "todayLabel": Object {
+              "long": "Hoy",
+              "short": "Hoy",
+            },
+            "weekStartsOn": 1,
+            "weekdays": Array [
+              "D",
+              "L",
+              "M",
+              "M",
+              "J",
+              "V",
+              "S",
+            ],
+          }
+        }
+        minDate={2018-01-25T05:00:00.000Z}
+        onSelect={[Function]}
+        rowHeight={30}
+        selected={2018-02-01T05:00:00.000Z}
+        width={400}
+      />
+    </Col>
+    <Col
+      bsClass="col"
+      componentClass="div"
+      sm={5}
+    >
+      <FormGroup
+        bsClass="form-group"
+      >
+        <ControlLabel
+          bsClass="control-label"
+          srOnly={false}
+        >
+          Nombres
+        </ControlLabel>
+        <FormControl
+          bsClass="form-control"
+          componentClass="input"
+          onChange={[Function]}
+          placeholder="Entre su(s) nombre(s)"
+          value=""
+        />
+      </FormGroup>
+      <FormGroup
+        bsClass="form-group"
+      >
+        <ControlLabel
+          bsClass="control-label"
+          srOnly={false}
+        >
+          Apellidos
+        </ControlLabel>
+        <FormControl
+          bsClass="form-control"
+          componentClass="input"
+          onChange={[Function]}
+          placeholder="Entre sus apellidos"
+          value=""
+        />
+      </FormGroup>
+    </Col>
+  </FormGroup>
+  <FormGroup
+    bsClass="form-group"
+  >
+    <Col
+      bsClass="col"
+      componentClass="div"
+      sm={10}
+      smOffset={1}
+    >
+      <InfoPanel
+        content=""
+      />
+    </Col>
+  </FormGroup>
+</Form>
+`;

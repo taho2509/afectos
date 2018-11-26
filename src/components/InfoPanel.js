@@ -10,8 +10,9 @@ export class InfoPanel extends Component {
                     {this.props.content}
                     {this.props.content ?
                         <Button
+                            className="pull-right"
                             bsSize="xsmall"
-                            bsStyle={"danger pull-right"}
+                            bsStyle={"danger"}
                         >
                             X
                         </Button>

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InfoPanel renders correctly 1`] = `
+<Uncontrolled(Panel)>
+  <PanelBody
+    bsClass="panel"
+    collapsible={false}
+  />
+</Uncontrolled(Panel)>
+`;
