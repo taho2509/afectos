@@ -47,10 +47,10 @@ class AfectosForm extends React.Component {
     handleChange(event, i) {
         const inputs = this.state.inputs.slice();
         const date = this.state.date;
-        var emotions = main(this.state.inputs[0].value + " " + this.state.inputs[1].value, this.state.date);
         inputs[i] = {
             value: event.target.value
         }
+        var emotions = main(inputs[0].value + " " + inputs[1].value, this.state.date);
         this.setState({
             inputs: inputs,
             date: date,
