@@ -207,6 +207,9 @@ function main(nameString, dateString) {
     nameString = nameString.toLowerCase();
     dateString = dateString.toLowerCase();
 
+    if(nameString === "")
+        return "";
+
     //2. Saving initial legth of strings
     var initialNameLength = nameString.length;
     var initialDateLength = dateString.length;
