@@ -66,6 +66,16 @@ class AfectosForm extends React.Component {
         });
     }
 
+    clear() {
+        this.setState({
+            inputs: Array(2).fill({
+                value: ''
+            }),
+            date: today,
+            emotions: ""
+        });
+    }
+
     render() {
         return (
             <Form horizontal onSubmit={this.handleSubmit}>
@@ -106,7 +116,10 @@ class AfectosForm extends React.Component {
                 </FormGroup>
                 <FormGroup>
                     <Col sm={10} smOffset={1}>
-                        <InfoPanel content={this.state.emotions}/>
+                        <InfoPanel
+                            content={this.state.emotions}
+                            handleClick={() => this.clear()}
+                        />
                     </Col>
                 </FormGroup>
             </Form>

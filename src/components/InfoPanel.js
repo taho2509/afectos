@@ -13,6 +13,7 @@ export class InfoPanel extends Component {
                             className="pull-right"
                             bsSize="xsmall"
                             bsStyle={"danger"}
+                            onClick={() => this.props.handleClick()}
                         >
                             X
                         </Button>
