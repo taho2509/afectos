@@ -17,7 +17,7 @@ const locale = {
     weekStartsOn: 1, // Start the week on Monday
 };
 
-var today;
+let today;
 
 // Render the Calendar
 if (process.env.NODE_ENV === 'test') {
@@ -28,7 +28,7 @@ if (process.env.NODE_ENV === 'test') {
     today = new Date();
 }
 
-var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
+let lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
 
 class AfectosForm extends React.Component {
     constructor(props) {
@@ -49,8 +49,8 @@ class AfectosForm extends React.Component {
         const date = this.state.date;
         inputs[i] = {
             value: event.target.value
-        }
-        var emotions = main(inputs[0].value + " " + inputs[1].value, this.state.date);
+        };
+        let emotions = main(inputs[0].value + " " + inputs[1].value, this.state.date);
         this.setState({
             inputs: inputs,
             date: date,
@@ -80,7 +80,7 @@ class AfectosForm extends React.Component {
 
     render() {
         return (
-            <Form horizontal onSubmit={this.handleSubmit}>
+            <Form horizontal>
                 <FormGroup>
                     <Col sm={5} smOffset={1}>
                         <InfiniteCalendar
@@ -132,22 +132,21 @@ class AfectosForm extends React.Component {
 const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "nn", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 function initializeAlphabet() {
-    var newObject = {
+    return {
         a: 0, b: 0, c: 0, d: 0, e: 0, f: 0, g: 0, h: 0, i: 0, j: 0, k: 0, l: 0,
         m: 0, n: 0, nn: 0, o: 0, p: 0, q: 0, r: 0, s: 0, t: 0, u: 0, v: 0, w: 0, x: 0, y: 0, z: 0
     };
-    return newObject;
 }
 
 function fillAlphabet(parameterObject, fillingString) {
-    for (var i = fillingString.length - 1; i >= 0; i--) {
+    for (let i = fillingString.length - 1; i >= 0; i--) {
         parameterObject[fillingString[i]]++;
     }
     return parameterObject;
 }
 
 function generateStringDate(argDate) {
-    var esMonth = {
+    const esMonth = {
         1: "enero",
         2: "febrero",
         3: "marzo",
@@ -162,7 +161,7 @@ function generateStringDate(argDate) {
         12: "diciembre"
     };
 
-    var esWeekDay = {
+    const esWeekDay = {
         0: "Domingo",
         1: "Lunes",
         2: "Martes",
@@ -172,7 +171,7 @@ function generateStringDate(argDate) {
         6: "Sabado"
     };
 
-    var esMonthDay = {
+    const esMonthDay = {
         1: "primero",
         2: "dos",
         3: "tres",
@@ -211,7 +210,7 @@ function generateStringDate(argDate) {
 
 function main(nameString, dateString) {
     //initialize with full options
-    var afectos = ["alegre", "feliz", "enamorado(a)", "cari&ntilde;oso(a)", "triste", "odioso(a)", "sorpresa"];
+    let afectos = ["alegre", "feliz", "enamorado(a)", "cari&ntilde;oso(a)", "triste", "odioso(a)", "sorpresa"];
 
     //0. Capturing values
     dateString = generateStringDate(dateString);
@@ -226,18 +225,18 @@ function main(nameString, dateString) {
         return "";
 
     //2. Saving initial legth of strings
-    var initialNameLength = nameString.length;
-    var initialDateLength = dateString.length;
+    let initialNameLength = nameString.length;
+    let initialDateLength = dateString.length;
 
     //3. Initializing the name array
-    var nameObject = initializeAlphabet();
+    let nameObject = initializeAlphabet();
 
     //4. Filling the name array
     nameObject = fillAlphabet(nameObject, nameString);
 
     //5. Creating auxiliar string
-    var lettersStringAdded = "";
-    var lettersStringDeleted = "";
+    let lettersStringAdded = "";
+    let lettersStringDeleted = "";
 
     //6. Cancelling common letters
     for (let i = dateString.length - 1; i >= 0; i--) {
@@ -252,15 +251,15 @@ function main(nameString, dateString) {
     }
 
     //7. Initializing the date array
-    var stringDateObject = initializeAlphabet();
+    let stringDateObject = initializeAlphabet();
 
     //8. Filling the date array
     stringDateObject = fillAlphabet(stringDateObject, lettersStringAdded);
 
     //9. Counting letters ocurrency
-    var nameCounter = 0;
-    var dateCounter = 0;
-    for (var i = 26; i >= 0; i--) {
+    let nameCounter = 0;
+    let dateCounter = 0;
+    for (let i = 26; i >= 0; i--) {
         nameCounter += nameObject[alphabet[i]];
         dateCounter += stringDateObject[alphabet[i]];
     }
@@ -269,8 +268,8 @@ function main(nameString, dateString) {
     nameCounter = initialNameLength - nameCounter;
     dateCounter = initialDateLength - dateCounter;
 
-    var morning, afternoon, evening;
-    var index;
+    let morning, afternoon, evening;
+    let index;
 
     //11.1 Finding the humor of the morning
     index = nameCounter % (afectos.length) - 1;
