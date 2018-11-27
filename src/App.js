@@ -25,7 +25,7 @@ class App extends Component {
                         crossOrigin="anonymous"
                     />
                     <p>
-                        Una aplicacion sencilla para calcular el estado de animo de las personas en la manana, tarde y noche de cada dia
+                        Una aplicación sencilla para calcular el estado de ánimo de las personas en la mañana, tarde y noche de cada día
                     </p>
                 </header>
                 <AfectosForm/>

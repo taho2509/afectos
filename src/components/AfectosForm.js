@@ -210,7 +210,7 @@ function generateStringDate(argDate) {
 
 function main(nameString, dateString) {
     //initialize with full options
-    let afectos = ["alegre", "feliz", "enamorado(a)", "cari&ntilde;oso(a)", "triste", "odioso(a)", "sorpresa"];
+    let afectos = ["alegre", "feliz", "enamorado(a)", "cariñoso(a)", "triste", "odioso(a)", "sorpresa"];
 
     //0. Capturing values
     dateString = generateStringDate(dateString);
