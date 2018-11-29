@@ -5,6 +5,71 @@ exports[`InfoPanel renders correctly 1`] = `
   <PanelBody
     bsClass="panel"
     collapsible={false}
-  />
+  >
+    <Grid
+      bsClass="container"
+      componentClass="div"
+      fluid={false}
+    >
+      <Row
+        bsClass="row"
+        componentClass="div"
+      >
+        <Col
+          bsClass="col"
+          className="morning"
+          componentClass="div"
+          sm={3}
+        >
+            
+          <img
+            alt=""
+            src="unknow.png"
+          />
+        </Col>
+        <Col
+          bsClass="col"
+          className="afternoon"
+          componentClass="div"
+          sm={3}
+        >
+            
+          <img
+            alt=""
+            src="unknow.png"
+          />
+        </Col>
+        <Col
+          bsClass="col"
+          className="evening"
+          componentClass="div"
+          sm={3}
+        >
+            
+          <img
+            alt=""
+            src="unknow.png"
+          />
+        </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          sm={3}
+        >
+          <Button
+            active={false}
+            block={false}
+            bsClass="btn"
+            bsSize="xsmall"
+            bsStyle="danger"
+            disabled={false}
+            onClick={[Function]}
+          >
+            X
+          </Button>
+        </Col>
+      </Row>
+    </Grid>
+  </PanelBody>
 </Uncontrolled(Panel)>
 `;

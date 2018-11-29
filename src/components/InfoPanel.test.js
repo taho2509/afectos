@@ -22,15 +22,23 @@ describe("InfoPanel", () => {
 
     beforeEach(() => {
         props = {
-            content: undefined,
+            content: {
+                morning:"",
+                afternoon:"",
+                evening: ""
+            },
         };
         shallowedInfoPanel = undefined;
     });
 
     it('renders correctly', () => {
-        const testString = "Test string";
+        const emotions = {
+            morning:"",
+            afternoon:"",
+            evening: ""
+        };
         beforeEach(() => {
-            props.content = testString;
+            props.content = emotions;
         });
         const tree = infoPanel();
         expect(toJson(tree)).toMatchSnapshot();
@@ -44,6 +52,14 @@ describe("InfoPanel", () => {
         expect(infoPanel().find(Panel.Body).length).toBe(1);
     });
 
+    it("always renders three `img`", () => {
+        expect(infoPanel().find("img").length).toBe(3);
+    });
+
+    it("always render a `Button`", () => {
+        expect(infoPanel().find(Button).length).toBe(1);
+    });
+
     describe("the rendered Panel", () => {
         it("contains everything else that gets rendered", () => {
             const panel = infoPanel().find(Panel);
@@ -53,37 +69,43 @@ describe("InfoPanel", () => {
     });
 
     describe("when `content` is defined", () => {
-        const testString = "Test string";
+        const emotions = {
+            morning:"hate",
+            afternoon:"love",
+            evening: "surprise"
+        };
         beforeEach(() => {
-            props.content = testString;
+            props.content = emotions;
         });
 
-        it("text from `content` is shown", () => {
+        it("text from `morning` is shown", () => {
             const panelBody = infoPanel().find(Panel.Body);
-            expect(panelBody.contains(testString)).toBe(true);
+            expect(panelBody.contains(emotions.morning)).toBe(true);
         });
 
-        it("Button is shown", () => {
+        it("text from `afternoon` is shown", () => {
             const panelBody = infoPanel().find(Panel.Body);
-            expect(panelBody.find(Button).length).toBe(1);
+            expect(panelBody.contains(emotions.afternoon)).toBe(true);
+        });
+
+        it("text from `evening` is shown", () => {
+            const panelBody = infoPanel().find(Panel.Body);
+            expect(panelBody.contains(emotions.evening)).toBe(true);
         });
     });
 
     describe("when `content` is undefined", () => {
-        beforeEach(() => {
-            props.content = undefined;
-        });
+        const emotions = {
+            morning:"",
+            afternoon:"",
+            evening: ""
+        };
 
         it("no text is shown", () => {
             const panel = mount(
-                <InfoPanel/>
+                <InfoPanel content={emotions}/>
             );
-            expect(panel.find(Panel.Body).text()).toEqual("");
-        });
-
-        it("Button isn't shown", () => {
-            const panelBody = infoPanel().find(Panel.Body);
-            expect(panelBody.find(Button).length).toBe(0);
+            expect(panel.find(Panel.Body).text().trim()).toEqual("X");
         });
     });
 });
