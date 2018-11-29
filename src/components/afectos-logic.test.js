@@ -49,9 +49,14 @@ describe("afectos logic", () => {
         );
     });
 
-    it("calculates the afectos correctly", () => {
+    it("calculates afectos correctly", () => {
         const name = "Jhon Doe";
         const date = new Date(2018, 10, 28);
-        expect(afectos(name,date)).toBe("odioso(a)|feliz|sorpresa");
+        const expected = toJson({
+            morning: "odioso(a)",
+            afternoon: "feliz",
+            evening: "sorpresa"
+        });
+        expect(toJson(afectos(name,date))).toBe(expected);
     });
 });

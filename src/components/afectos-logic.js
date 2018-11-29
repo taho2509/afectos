@@ -1,8 +1,14 @@
 const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "nn", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 export function afectos(nameString, dateString) {
+    let day = {
+        morning: "",
+        afternoon: "",
+        evening: "",
+    };
     //initialize with full options
-    let afectos = ["alegre", "feliz", "enamorado(a)", "cariñoso(a)", "triste", "odioso(a)", "sorpresa"];
+    //let afectos = ["alegre", "feliz", "enamorado", "cariñoso(a)", "triste", "odioso(a)", "sorpresa"];
+    let afectos = ["joy", "happiness", "love", "affection", "sadness", "hate", "surprise"];
 
     //0. Capturing values
     dateString = generateStringDate(dateString);
@@ -14,7 +20,7 @@ export function afectos(nameString, dateString) {
     dateString = dateString.toLowerCase();
 
     if(nameString === "")
-        return "";
+        return day;
 
     //2. Saving initial length of strings
     let initialNameLength = nameString.length;
@@ -60,31 +66,29 @@ export function afectos(nameString, dateString) {
     nameCounter = initialNameLength - nameCounter;
     dateCounter = initialDateLength - dateCounter;
 
-    let morning, afternoon, evening;
     let index;
 
     //11.1 Finding the humor of the morning
     index = nameCounter % (afectos.length) - 1;
     if (index === -1)
         index = afectos.length - 1;
-    morning = afectos[index];
+    day.morning = afectos[index];
     afectos.splice(index, 1);
 
     //11.2 Finding the humor of the afternoon
     index = dateCounter % (afectos.length) - 1;
     if (index === -1)
         index = afectos.length - 1;
-    afternoon = afectos[index];
+    day.afternoon = afectos[index];
     afectos.splice(index, 1);
 
     //11.3 Finding the humor of the evening
     index = (nameCounter + dateCounter) % (afectos.length) - 1;
     if (index === -1)
         index = afectos.length - 1;
-    evening = afectos[index];
+    day.evening = afectos[index];
 
-    //12. Creating the output
-    return morning + "|" + afternoon + "|" + evening;
+    return day;
 }
 
 export function generateStringDate(argDate) {
