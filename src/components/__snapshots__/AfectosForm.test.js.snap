@@ -127,7 +127,13 @@ exports[`AfectosForm renders correctly 1`] = `
       smOffset={1}
     >
       <InfoPanel
-        content=""
+        content={
+          Object {
+            "afternoon": "",
+            "evening": "",
+            "morning": "",
+          }
+        }
         handleClick={[Function]}
       />
     </Col>

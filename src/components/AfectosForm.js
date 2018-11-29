@@ -39,7 +39,11 @@ class AfectosForm extends React.Component {
                 value: ''
             }),
             date: today,
-            emotions: ""
+            emotions: {
+                morning: "",
+                afternoon: "",
+                evening: ""
+            }
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -75,7 +79,11 @@ class AfectosForm extends React.Component {
                 value: ''
             }),
             date: today,
-            emotions: ""
+            emotions: {
+                morning: "",
+                afternoon: "",
+                evening: ""
+            }
         });
     }
 
