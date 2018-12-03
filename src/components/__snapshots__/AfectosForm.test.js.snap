@@ -1,142 +1,156 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AfectosForm renders correctly 1`] = `
-<Form
-  bsClass="form"
-  componentClass="form"
-  horizontal={true}
-  inline={false}
+<t
+  className="offset-md-1"
+  lg={null}
+  md="10"
+  sm={null}
+  tag="div"
+  xl={null}
+  xs={null}
 >
-  <FormGroup
-    bsClass="form-group"
+  <t
+    tag="div"
   >
-    <Col
-      bsClass="col"
-      componentClass="div"
-      sm={5}
-      smOffset={1}
+    <t
+      tag="div"
     >
-      <DefaultCalendar
-        Component={[Function]}
-        displayOptions={
-          Object {
-            "layout": "landscape",
-          }
-        }
-        height={368}
-        interpolateSelection={[Function]}
-        locale={
-          Object {
-            "blank": "Ninguna fecha seleccionada",
-            "headerFormat": "dddd, D MMM",
-            "locale": Object {
-              "distanceInWords": Object {
-                "localize": [Function],
-              },
-              "format": Object {
-                "formatters": Object {
-                  "A": [Function],
-                  "DDDo": [Function],
-                  "Do": [Function],
-                  "MMM": [Function],
-                  "MMMM": [Function],
-                  "Mo": [Function],
-                  "Qo": [Function],
-                  "Wo": [Function],
-                  "a": [Function],
-                  "aa": [Function],
-                  "dd": [Function],
-                  "ddd": [Function],
-                  "dddd": [Function],
-                  "do": [Function],
+      <t
+        tag="div"
+      >
+        <t
+          lg={null}
+          md={null}
+          sm={5}
+          smOffset={1}
+          tag="div"
+          xl={null}
+          xs={null}
+        >
+          <DefaultCalendar
+            Component={[Function]}
+            displayOptions={
+              Object {
+                "layout": "landscape",
+              }
+            }
+            height={368}
+            interpolateSelection={[Function]}
+            locale={
+              Object {
+                "blank": "Ninguna fecha seleccionada",
+                "headerFormat": "dddd, D MMM",
+                "locale": Object {
+                  "distanceInWords": Object {
+                    "localize": [Function],
+                  },
+                  "format": Object {
+                    "formatters": Object {
+                      "A": [Function],
+                      "DDDo": [Function],
+                      "Do": [Function],
+                      "MMM": [Function],
+                      "MMMM": [Function],
+                      "Mo": [Function],
+                      "Qo": [Function],
+                      "Wo": [Function],
+                      "a": [Function],
+                      "aa": [Function],
+                      "dd": [Function],
+                      "ddd": [Function],
+                      "dddd": [Function],
+                      "do": [Function],
+                    },
+                    "formattingTokensRegExp": /\\(\\\\\\[\\[\\^\\\\\\[\\]\\*\\\\\\]\\)\\|\\(\\\\\\\\\\)\\?\\(x\\|ss\\|s\\|mm\\|m\\|hh\\|h\\|do\\|dddd\\|ddd\\|dd\\|d\\|aa\\|a\\|ZZ\\|Z\\|YYYY\\|YY\\|X\\|Wo\\|WW\\|W\\|SSS\\|SS\\|S\\|Qo\\|Q\\|Mo\\|MMMM\\|MMM\\|MM\\|M\\|HH\\|H\\|GGGG\\|GG\\|E\\|Do\\|DDDo\\|DDDD\\|DDD\\|DD\\|D\\|A\\|\\.\\)/g,
+                  },
                 },
-                "formattingTokensRegExp": /\\(\\\\\\[\\[\\^\\\\\\[\\]\\*\\\\\\]\\)\\|\\(\\\\\\\\\\)\\?\\(x\\|ss\\|s\\|mm\\|m\\|hh\\|h\\|do\\|dddd\\|ddd\\|dd\\|d\\|aa\\|a\\|ZZ\\|Z\\|YYYY\\|YY\\|X\\|Wo\\|WW\\|W\\|SSS\\|SS\\|S\\|Qo\\|Q\\|Mo\\|MMMM\\|MMM\\|MM\\|M\\|HH\\|H\\|GGGG\\|GG\\|E\\|Do\\|DDDo\\|DDDD\\|DDD\\|DD\\|D\\|A\\|\\.\\)/g,
-              },
-            },
-            "todayLabel": Object {
-              "long": "Hoy",
-              "short": "Hoy",
-            },
-            "weekStartsOn": 1,
-            "weekdays": Array [
-              "D",
-              "L",
-              "M",
-              "M",
-              "J",
-              "V",
-              "S",
-            ],
-          }
-        }
-        minDate={2018-01-25T05:00:00.000Z}
-        onSelect={[Function]}
-        rowHeight={30}
-        selected={2018-02-01T05:00:00.000Z}
-        width={400}
-      />
-    </Col>
-    <Col
-      bsClass="col"
-      componentClass="div"
-      sm={5}
-    >
-      <FormGroup
-        bsClass="form-group"
-      >
-        <ControlLabel
-          bsClass="control-label"
-          srOnly={false}
+                "todayLabel": Object {
+                  "long": "Hoy",
+                  "short": "Hoy",
+                },
+                "weekStartsOn": 1,
+                "weekdays": Array [
+                  "D",
+                  "L",
+                  "M",
+                  "M",
+                  "J",
+                  "V",
+                  "S",
+                ],
+              }
+            }
+            minDate={2018-01-25T05:00:00.000Z}
+            onSelect={[Function]}
+            rowHeight={30}
+            selected={2018-02-01T05:00:00.000Z}
+            theme={
+              Object {
+                "floatingNav": Object {
+                  "background": "#bbdefb",
+                  "chevron": "#1e88e5",
+                  "color": "#FFF",
+                },
+                "headerColor": "#1e88e5",
+                "selectionColor": "#2196f3",
+                "textColor": Object {
+                  "active": "#FFF",
+                  "default": "#333",
+                },
+                "weekdayColor": "#bbdefb",
+              }
+            }
+            width={400}
+          />
+        </t>
+        <t
+          lg={null}
+          md={null}
+          sm={5}
+          tag="div"
+          xl={null}
+          xs={null}
         >
-          Nombres
-        </ControlLabel>
-        <FormControl
-          bsClass="form-control"
-          componentClass="input"
-          onChange={[Function]}
-          placeholder="Entre su(s) nombre(s)"
-          value=""
-        />
-      </FormGroup>
-      <FormGroup
-        bsClass="form-group"
+          <t
+            label="Entre su(s) nombre(s)"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+          <t
+            label="Entre sus apellidos"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </t>
+      </t>
+       
+      <t
+        tag="div"
       >
-        <ControlLabel
-          bsClass="control-label"
-          srOnly={false}
+        <t
+          lg={null}
+          md={null}
+          sm={null}
+          tag="div"
+          xl={null}
+          xs={null}
         >
-          Apellidos
-        </ControlLabel>
-        <FormControl
-          bsClass="form-control"
-          componentClass="input"
-          onChange={[Function]}
-          placeholder="Entre sus apellidos"
-          value=""
-        />
-      </FormGroup>
-    </Col>
-  </FormGroup>
-  <FormGroup
-    bsClass="form-group"
-  >
-    <Col
-      bsClass="col"
-      componentClass="div"
-      sm={10}
-      smOffset={1}
-    >
-      <InfoPanel
-        content={
-          Object {
-            "afternoon": "",
-            "evening": "",
-            "morning": "",
-          }
-        }
-        handleClick={[Function]}
-      />
-    </Col>
-  </FormGroup>
-</Form>
+          <InfoPanel
+            content={
+              Object {
+                "afternoon": "",
+                "evening": "",
+                "morning": "",
+              }
+            }
+            handleClick={[Function]}
+          />
+        </t>
+      </t>
+    </t>
+  </t>
+</t>
 `;
