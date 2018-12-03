@@ -1,5 +1,5 @@
 import React from 'react';
-import {Col, ControlLabel, Form, FormControl, FormGroup} from 'react-bootstrap';
+import { MDBCard, MDBCardBody , MDBRow, MDBCol, MDBInput } from "mdbreact";
 import InfiniteCalendar from "react-infinite-calendar";
 import 'react-infinite-calendar/styles.css'; // only needs to be imported once
 import '../css/Afectos.css';
@@ -89,51 +89,63 @@ class AfectosForm extends React.Component {
 
     render() {
         return (
-            <Form horizontal>
-                <FormGroup>
-                    <Col sm={5} smOffset={1}>
-                        <InfiniteCalendar
-                            width={(window.innerWidth <= 400) ? window.innerWidth : 400}
-                            height={window.innerHeight - 400}
-                            rowHeight={30}
-                            selected={today}
-                            minDate={lastWeek}
-                            locale={locale}
-                            displayOptions={{
-                                layout: 'landscape'
-                            }}
-                            onSelect={(date) => this.handleSelect(date)}
-                        />
-                    </Col>
-                    <Col sm={5}>
-                        <FormGroup>
-                            <ControlLabel>Nombres</ControlLabel>
-                            <FormControl
-                                placeholder="Entre su(s) nombre(s)"
-                                value={this.state.inputs[0].value}
-                                onChange={(event) => this.handleChange(event, 0)}
-                            />
-                        </FormGroup>
-
-                        <FormGroup>
-                            <ControlLabel>Apellidos</ControlLabel>
-                            <FormControl
-                                placeholder="Entre sus apellidos"
-                                value={this.state.inputs[1].value}
-                                onChange={(event) => this.handleChange(event, 1)}
-                            />
-                        </FormGroup>
-                    </Col>
-                </FormGroup>
-                <FormGroup>
-                    <Col sm={10} smOffset={1}>
-                        <InfoPanel
-                            content={this.state.emotions}
-                            handleClick={() => this.clear()}
-                        />
-                    </Col>
-                </FormGroup>
-            </Form>
+            <MDBCol md="10" className="offset-md-1">
+                <MDBCard>
+                    <MDBCardBody>
+                        <MDBRow>
+                            <MDBCol sm={5} smOffset={1}>
+                                <InfiniteCalendar
+                                    theme={{
+                                        selectionColor: '#2196f3',
+                                        textColor: {
+                                            default: '#333',
+                                            active: '#FFF'
+                                        },
+                                        weekdayColor: '#bbdefb',
+                                        headerColor: '#1e88e5',
+                                        floatingNav: {
+                                            background: '#bbdefb',
+                                            color: '#FFF',
+                                            chevron: '#1e88e5'
+                                        }
+                                    }}
+                                    width={(window.innerWidth <= 400) ? window.innerWidth : 400}
+                                    height={window.innerHeight - 400}
+                                    rowHeight={30}
+                                    selected={today}
+                                    minDate={lastWeek}
+                                    locale={locale}
+                                    displayOptions={{
+                                        layout: 'landscape'
+                                    }}
+                                    onSelect={(date) => this.handleSelect(date)}
+                                />
+                            </MDBCol>
+                            <MDBCol sm={5}>
+                                    <MDBInput
+                                        label="Entre su(s) nombre(s)"
+                                        value={this.state.inputs[0].value}
+                                        onChange={(event) => this.handleChange(event, 0)}
+                                    />
+                                    <MDBInput
+                                        label="Entre sus apellidos"
+                                        value={this.state.inputs[1].value}
+                                        onChange={(event) => this.handleChange(event, 1)}
+                                    />
+                            </MDBCol>
+                        </MDBRow>
+                        &nbsp;
+                        <MDBRow>
+                            <MDBCol>
+                                <InfoPanel
+                                    content={this.state.emotions}
+                                    handleClick={() => this.clear()}
+                                />
+                            </MDBCol>
+                        </MDBRow>
+                    </MDBCardBody>
+                </MDBCard>
+            </MDBCol>
         );
     }
 }

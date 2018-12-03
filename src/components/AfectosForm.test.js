@@ -1,6 +1,6 @@
 import React from 'react';
 import AfectosForm from './AfectosForm';
-import {Form} from 'react-bootstrap';
+import { MDBCard, MDBCardBody , MDBRow, MDBCol, MDBInput } from "mdbreact";
 import Enzyme, {shallow} from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json'
@@ -30,8 +30,13 @@ describe("AfectosForm", () => {
         expect(toJson(tree)).toMatchSnapshot();
     });
 
-    it("always renders a `Form`", () => {
-        const form = afectosForm().find("Form");
+    it("always renders a `MDBCard`", () => {
+        const form = afectosForm().find(MDBCard);
+        expect(form.length).toBe(1);
+    });
+
+    it("always renders a `MDBCardBody`", () => {
+        const form = afectosForm().find(MDBCardBody);
         expect(form.length).toBe(1);
     });
 
@@ -40,21 +45,21 @@ describe("AfectosForm", () => {
         expect(infCalendar.length).toBe(1);
     });
 
-    it("always renders two `FormControl`", () => {
-        const edit = afectosForm().find("FormControl");
+    it("always renders two `MDBInput`", () => {
+        const edit = afectosForm().find(MDBInput);
         expect(edit.length).toBe(2);
     });
 
     it("always renders an `InfoPanel`", () => {
-        const infoPanel = afectosForm().find("InfoPanel");//InfiniteCalendar renders a DefaultCalendar
+        const infoPanel = afectosForm().find("InfoPanel");
         expect(infoPanel.length).toBe(1);
     });
 
-    describe("the rendered Form", () => {
+    describe("the rendered MDBCol", () => {
         it("contains everything else that gets rendered", () => {
-            const form = afectosForm().find(Form);
-            const wrappingForm = form.first();
-            expect(wrappingForm.children()).toEqual(afectosForm().children());
+            const parent = afectosForm().find(MDBCol);
+            const wrapper = parent.first();
+            expect(wrapper.children()).toEqual(afectosForm().children());
         });
     });
 });

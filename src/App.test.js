@@ -34,9 +34,9 @@ describe("App", () => {
         expect(divs.length).toBeGreaterThan(0);
     });
 
-    it("always renders a header", () => {
-        const header = app().find("header");
-        expect(header.length).toBe(1);
+    it("always renders a `MyNavBar`", () => {
+        const navbar = app().find("MyNavBar");
+        expect(navbar.length).toBe(1);
     });
 
     it("always renders an `AfectosForm`", () => {

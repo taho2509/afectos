@@ -1,75 +1,90 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InfoPanel renders correctly 1`] = `
-<Uncontrolled(Panel)>
-  <PanelBody
-    bsClass="panel"
-    collapsible={false}
+<t
+  lg={null}
+  md="12"
+  sm={null}
+  tag="div"
+  xl={null}
+  xs={null}
+>
+  <t
+    tag="div"
   >
-    <Grid
-      bsClass="container"
-      componentClass="div"
-      fluid={false}
+    <t
+      tag="div"
     >
-      <Row
-        bsClass="row"
-        componentClass="div"
+      <t
+        tag="div"
       >
-        <Col
-          bsClass="col"
+        <t
           className="morning"
-          componentClass="div"
+          lg={null}
+          md={null}
           sm={3}
+          tag="div"
+          xl={null}
+          xs={null}
         >
             
           <img
             alt=""
             src="unknow.png"
           />
-        </Col>
-        <Col
-          bsClass="col"
+        </t>
+        <t
           className="afternoon"
-          componentClass="div"
+          lg={null}
+          md={null}
           sm={3}
+          tag="div"
+          xl={null}
+          xs={null}
         >
             
           <img
             alt=""
             src="unknow.png"
           />
-        </Col>
-        <Col
-          bsClass="col"
+        </t>
+        <t
           className="evening"
-          componentClass="div"
+          lg={null}
+          md={null}
           sm={3}
+          tag="div"
+          xl={null}
+          xs={null}
         >
             
           <img
             alt=""
             src="unknow.png"
           />
-        </Col>
-        <Col
-          bsClass="col"
-          componentClass="div"
+        </t>
+        <t
+          lg={null}
+          md={null}
           sm={3}
+          tag="div"
+          xl={null}
+          xs={null}
         >
-          <Button
-            active={false}
-            block={false}
-            bsClass="btn"
-            bsSize="xsmall"
-            bsStyle="danger"
-            disabled={false}
+          <t
+            className="rounded"
+            color="danger"
             onClick={[Function]}
+            size="sm"
+            tag="button"
           >
-            X
-          </Button>
-        </Col>
-      </Row>
-    </Grid>
-  </PanelBody>
-</Uncontrolled(Panel)>
+            <i
+              className="fa fa-trash"
+            />
+          </t>
+        </t>
+      </t>
+    </t>
+  </t>
+</t>
 `;

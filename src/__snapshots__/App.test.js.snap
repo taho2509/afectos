@@ -4,18 +4,8 @@ exports[`App renders correctly 1`] = `
 <div
   className="App"
 >
-  <header
-    className="App-header"
-  >
-    <link
-      crossOrigin="anonymous"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <p>
-      Una aplicación sencilla para calcular el estado de ánimo de las personas en la mañana, tarde y noche de cada día
-    </p>
-  </header>
+  <MyNavBar />
+   
   <AfectosForm />
 </div>
 `;

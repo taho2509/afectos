@@ -1,6 +1,6 @@
 import React from 'react';
 import {InfoPanel} from './InfoPanel';
-import {Button, Panel} from "react-bootstrap";
+import { MDBRow, MDBCol, MDBBtn, MDBCard, MDBCardBody } from "mdbreact";
 import Enzyme, {mount, shallow} from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from "enzyme-to-json";
@@ -44,25 +44,25 @@ describe("InfoPanel", () => {
         expect(toJson(tree)).toMatchSnapshot();
     });
 
-    it("always renders a `Panel`", () => {
-        expect(infoPanel().find(Panel).length).toBe(1);
+    it("always renders a `MDBCard`", () => {
+        expect(infoPanel().find(MDBCard).length).toBe(1);
     });
 
-    it("always renders a `Panel.Body`", () => {
-        expect(infoPanel().find(Panel.Body).length).toBe(1);
+    it("always renders a `MDBCardBody`", () => {
+        expect(infoPanel().find(MDBCardBody).length).toBe(1);
     });
 
     it("always renders three `img`", () => {
         expect(infoPanel().find("img").length).toBe(3);
     });
 
-    it("always render a `Button`", () => {
-        expect(infoPanel().find(Button).length).toBe(1);
+    it("always render a `MDBBtn`", () => {
+        expect(infoPanel().find(MDBBtn).length).toBe(1);
     });
 
     describe("the rendered Panel", () => {
         it("contains everything else that gets rendered", () => {
-            const panel = infoPanel().find(Panel);
+            const panel = infoPanel().find(MDBCol);
             const wrappingPanel = panel.first();
             expect(wrappingPanel.children()).toEqual(infoPanel().children());
         });
@@ -79,17 +79,17 @@ describe("InfoPanel", () => {
         });
 
         it("text from `morning` is shown", () => {
-            const panelBody = infoPanel().find(Panel.Body);
+            const panelBody = infoPanel().find(MDBCardBody);
             expect(panelBody.contains(emotions.morning)).toBe(true);
         });
 
         it("text from `afternoon` is shown", () => {
-            const panelBody = infoPanel().find(Panel.Body);
+            const panelBody = infoPanel().find(MDBCardBody);
             expect(panelBody.contains(emotions.afternoon)).toBe(true);
         });
 
         it("text from `evening` is shown", () => {
-            const panelBody = infoPanel().find(Panel.Body);
+            const panelBody = infoPanel().find(MDBCardBody);
             expect(panelBody.contains(emotions.evening)).toBe(true);
         });
     });
@@ -105,7 +105,7 @@ describe("InfoPanel", () => {
             const panel = mount(
                 <InfoPanel content={emotions}/>
             );
-            expect(panel.find(Panel.Body).text().trim()).toEqual("X");
+            expect(panel.find(MDBCardBody).text().trim()).toEqual("");
         });
     });
 });
