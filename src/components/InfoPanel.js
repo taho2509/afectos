@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBCardBody } from "mdbreact";
+import { MDBRow, MDBCol, MDBBtn, MDBCard, MDBCardBody } from "mdbreact";
 
 export class InfoPanel extends Component {
     render() {
@@ -38,9 +38,11 @@ export class InfoPanel extends Component {
                             <MDBCol sm={3}>
                                 {<MDBBtn
                                     color="danger"
+                                    size="sm"
+                                    className="rounded"
                                     onClick={() => this.props.handleClick()}
                                 >
-                                    X
+                                    <i className="fa fa-trash"></i>
                                 </MDBBtn>
                                 }
                             </MDBCol>
