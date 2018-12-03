@@ -1,33 +1,15 @@
 import React, {Component} from 'react';
 import './App.css';
+import MyNavBar from './components/NavBar';
 import AfectosForm from './components/AfectosForm';
-//i ll keep a bootstrap copy locally to avoid
-// my connectivity issues but i think it would
-// be better to put this in header
-/*<link
-    rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    crossOrigin="anonymous"
-/>*/
-
-//import './css/bootstrap.min.css';
-
 
 
 class App extends Component {
     render() {
         return (
             <div className="App">
-                <header className="App-header">
-                    <link
-                        rel="stylesheet"
-                        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-                        crossOrigin="anonymous"
-                    />
-                    <p>
-                        Una aplicación sencilla para calcular el estado de ánimo de las personas en la mañana, tarde y noche de cada día
-                    </p>
-                </header>
+                <MyNavBar/>
+                &nbsp;
                 <AfectosForm/>
             </div>
         );

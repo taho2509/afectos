@@ -1,5 +1,5 @@
 import React from 'react';
-import {Col, ControlLabel, Form, FormControl, FormGroup} from 'react-bootstrap';
+import { MDBContainer, MDBRow, MDBCol, MDBInput } from "mdbreact";
 import InfiniteCalendar from "react-infinite-calendar";
 import 'react-infinite-calendar/styles.css'; // only needs to be imported once
 import '../css/Afectos.css';
@@ -89,10 +89,24 @@ class AfectosForm extends React.Component {
 
     render() {
         return (
-            <Form horizontal>
-                <FormGroup>
-                    <Col sm={5} smOffset={1}>
+            <MDBContainer>
+                <MDBRow>
+                    <MDBCol sm={5} smOffset={1}>
                         <InfiniteCalendar
+                            theme={{
+                                selectionColor: '#2196f3',
+                                textColor: {
+                                    default: '#333',
+                                    active: '#FFF'
+                                },
+                                weekdayColor: '#2196f3',
+                                headerColor: '#2196f3',
+                                floatingNav: {
+                                    background: 'rgba(81, 67, 138, 0.96)',
+                                    color: '#FFF',
+                                    chevron: '#FFA726'
+                                }
+                            }}
                             width={(window.innerWidth <= 400) ? window.innerWidth : 400}
                             height={window.innerHeight - 400}
                             rowHeight={30}
@@ -104,36 +118,30 @@ class AfectosForm extends React.Component {
                             }}
                             onSelect={(date) => this.handleSelect(date)}
                         />
-                    </Col>
-                    <Col sm={5}>
-                        <FormGroup>
-                            <ControlLabel>Nombres</ControlLabel>
-                            <FormControl
-                                placeholder="Entre su(s) nombre(s)"
+                    </MDBCol>
+                    <MDBCol sm={5}>
+                            <MDBInput
+                                label="Entre su(s) nombre(s)"
                                 value={this.state.inputs[0].value}
                                 onChange={(event) => this.handleChange(event, 0)}
                             />
-                        </FormGroup>
-
-                        <FormGroup>
-                            <ControlLabel>Apellidos</ControlLabel>
-                            <FormControl
-                                placeholder="Entre sus apellidos"
+                            <MDBInput
+                                label="Entre sus apellidos"
                                 value={this.state.inputs[1].value}
                                 onChange={(event) => this.handleChange(event, 1)}
                             />
-                        </FormGroup>
-                    </Col>
-                </FormGroup>
-                <FormGroup>
-                    <Col sm={10} smOffset={1}>
+                    </MDBCol>
+                </MDBRow>
+                <div></div>
+                <MDBRow>
+                    <MDBCol sm={10} smOffset={1}>
                         <InfoPanel
                             content={this.state.emotions}
                             handleClick={() => this.clear()}
                         />
-                    </Col>
-                </FormGroup>
-            </Form>
+                    </MDBCol>
+                </MDBRow>
+            </MDBContainer>
         );
     }
 }
