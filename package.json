@@ -6,7 +6,7 @@
     "mdbreact": "^4.8.4",
     "react": "^16.6.3",
     "react-addons-css-transition-group": "^15.6.2",
-    "react-bootstrap": "^0.32.4",
+    "react-bootstrap": "^1.0.0",
     "react-dom": "^16.6.3",
     "react-infinite-calendar": "^2.3.1",
     "react-scripts": "2.1.1"
